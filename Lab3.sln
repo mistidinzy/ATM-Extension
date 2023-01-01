@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3App.Tests", "Lab3App.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM", "ATM\ATM.csproj", "{BF42DFE4-FC9C-40DA-9F01-90D3933556B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.Tests", "ATM.Tests\ATM.Tests.csproj", "{94279E34-3628-4B66-BB64-AB8E71E41295}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{BF42DFE4-FC9C-40DA-9F01-90D3933556B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF42DFE4-FC9C-40DA-9F01-90D3933556B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF42DFE4-FC9C-40DA-9F01-90D3933556B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94279E34-3628-4B66-BB64-AB8E71E41295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94279E34-3628-4B66-BB64-AB8E71E41295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94279E34-3628-4B66-BB64-AB8E71E41295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94279E34-3628-4B66-BB64-AB8E71E41295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
