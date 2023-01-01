@@ -59,4 +59,33 @@ public class BankAccountTests
         bankaccount.Deposit(-1);
       });
     }
+
+    [Fact]
+    public void Withdraw_Subtracts_From_Balance()
+    {
+      //Arrange
+      BankAccount bankaccount = new BankAccount();
+      bankaccount.Deposit(3);
+      //Act
+      bankaccount.Withdraw(1);
+
+      //Assert
+      decimal newBalance = bankaccount.GetBalance();
+      Assert.Equal(2, newBalance);
+    }
+
+    [Fact]
+    public void Withdraw_Amount_Is_More_Than_Balance()
+    {
+      // Arrange
+      BankAccount bankaccount = new BankAccount();
+      bankaccount.Deposit(3);
+
+      // Assert
+      Assert.Throws<ArgumentException>(() =>
+      {
+        //Act
+        bankaccount.Withdraw(5);
+      });
+    }
 }
