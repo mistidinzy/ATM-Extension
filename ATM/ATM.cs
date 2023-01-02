@@ -43,7 +43,7 @@ namespace ATM
                 Console.WriteLine("---------------------------------------------------");
                 Console.WriteLine(" ");
 
-                string userInput = Console.ReadLine();
+                string? userInput = Console.ReadLine();
                 int choice = Convert.ToInt32(userInput);
 
                 return choice;
@@ -73,7 +73,7 @@ namespace ATM
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine(" ");
 
-            string userResponse = Console.ReadLine();
+            string? userResponse = Console.ReadLine();
             int userResponseB = Convert.ToInt32(userResponse);
 
             return userResponseB;
