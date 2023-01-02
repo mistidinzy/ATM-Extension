@@ -11,13 +11,27 @@ public class L3Tests
   [InlineData("2 3 4")]
   public void UserInputReturnsProduct(string input)
   {
+    //Arrange
     int expected = 24;
+    //Act
     int actual = Program.ChallengeOne(input);
-
+    //Assert
     Assert.Equal(expected, actual);
   }
-}
 
   //Input more than 3 numbers
+  [Theory]
+  [InlineData("2 3 4 6")] //Arrange
+  public void ThrowsIfInputIsMoreThanThreeNumbers(string input)
+  { //Assert
+    Assert.Throws<ArgumentException>(() =>
+    {//Act
+      Program.ChallengeOne(input);
+    });
+  }
+
+}
+
+  
   //Input of less than 3 numbers
   //Can it handle negative numbers
