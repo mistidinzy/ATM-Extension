@@ -21,4 +21,7 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lab3App\Lab3App.csproj" />
+  </ItemGroup>
 </Project>
