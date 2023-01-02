@@ -30,8 +30,21 @@ public class L3Tests
     });
   }
 
+  //Input of less than 3 numbers
+  [Theory]
+  [InlineData("2 3")] //Arrange
+  public void ThrowsIfInputIsLessThanThreeNumbers(string input)
+  { //Assert
+    Assert.Throws<ArgumentException>(() =>
+    {//Act
+      Program.ChallengeOne(input);
+    });
+  }
+
+  //Can it handle negative numbers
+
 }
 
   
-  //Input of less than 3 numbers
-  //Can it handle negative numbers
+
+  
