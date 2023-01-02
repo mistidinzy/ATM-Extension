@@ -14,26 +14,34 @@ namespace Lab3App
       Console.WriteLine("Hello! Please enter three numbers.");
 
       string? userInput = Console.ReadLine();
-      string[] words = userInput.Split();
-
-      List<int> wordsList = new List<int>();
-
-      foreach(var num in words)
-      {
-        int parsedNum = Int32.Parse(num);
-        wordsList.Add(parsedNum);
-      }
-
-      int[] numArr = wordsList.ToArray();
-
-      int n = numArr.Length;
-
       int result = 0;
 
-      for(int i = 0; i < n; i++)
+      if (userInput != null)
       {
-        result = result * i;
+        string[] words = userInput.Split();
+
+        List<int> wordsList = new List<int>();
+
+        foreach (var num in words)
+        {
+          int parsedNum = Int32.Parse(num);
+          wordsList.Add(parsedNum);
+        }
+
+        int[] numArr = wordsList.ToArray();
+
+        int n = numArr.Length;
+
+        for (int i = 0; i < n; i++)
+        {
+          result = result * i;
+        }
       }
+      else
+      {
+        throw new ArgumentException("User input was null.");
+      }
+
       return result;
     }
   }
