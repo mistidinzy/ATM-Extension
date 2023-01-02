@@ -6,34 +6,58 @@ namespace Lab3App
   {
     public static void Main()
     {
-      ChallengeOne();
+      string input = GetInput();
+      ChallengeOne(input);
     }
 
-    public static int ChallengeOne()
+    public static string GetInput()
+    {
+      string result = "foo";
+
+      Console.WriteLine("Hello, please enter 3 numbers, each separated by a space.");
+
+      string? userInput = Console.ReadLine();
+
+      if (userInput != null)
+      {
+        result = userInput;
+      }
+
+      return result;
+    }
+
+    public static int ChallengeOne(string input)
     {
       int product = 1;
-
-      Console.WriteLine("Enter a string of three numbers separated by spaces: ");
-
-      string? input = Console.ReadLine();
 
       if (input != null)
       {
         string[] numbers = input.Split(' ');
 
-        int[] nums = Array.ConvertAll(numbers, int.Parse);
-      
-        foreach (int num in nums)
-        {
-            product *= num;
-        }
+        int n = numbers.Length;
 
-        Console.WriteLine("The product of the numbers is: " + product);   
-      } else { throw new ArgumentException("User Input was null."); }
+        if (n == 3)
+        {
+          int[] nums = Array.ConvertAll(numbers, int.Parse);
+
+          foreach (int num in nums)
+          {
+            product *= num;
+          }
+
+          Console.WriteLine("The product of your numbers is: " + product);
+
+          Console.WriteLine("Thanks, Bye!");
+        }
+        else
+        {
+          throw new ArgumentException("Please enter 3 numbers.");
+        }
+      }
+      else { throw new ArgumentException("User Input was null."); }
 
       return product;
-      
-    } 
+    }
   }
 }
 
