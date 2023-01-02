@@ -11,39 +11,29 @@ namespace Lab3App
 
     public static int ChallengeOne()
     {
-      Console.WriteLine("Hello! Please enter three numbers.");
+      int product = 1;
 
-      string? userInput = Console.ReadLine();
-      int result = 0;
+      Console.WriteLine("Enter a string of three numbers separated by spaces: ");
 
-      if (userInput != null)
+      string? input = Console.ReadLine();
+
+      if (input != null)
       {
-        string[] words = userInput.Split();
+        string[] numbers = input.Split(' ');
 
-        List<int> wordsList = new List<int>();
-
-        foreach (var num in words)
+        int[] nums = Array.ConvertAll(numbers, int.Parse);
+      
+        foreach (int num in nums)
         {
-          int parsedNum = Int32.Parse(num);
-          wordsList.Add(parsedNum);
+            product *= num;
         }
 
-        int[] numArr = wordsList.ToArray();
+        Console.WriteLine("The product of the numbers is: " + product);   
+      } else { throw new ArgumentException("User Input was null."); }
 
-        int n = numArr.Length;
-
-        for (int i = 0; i < n; i++)
-        {
-          result = result * i;
-        }
-      }
-      else
-      {
-        throw new ArgumentException("User input was null.");
-      }
-
-      return result;
-    }
+      return product;
+      
+    } 
   }
 }
 
