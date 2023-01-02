@@ -42,9 +42,15 @@ public class L3Tests
   }
 
   //Can it handle negative numbers
-
+  [Theory]
+  [InlineData("2 -3 4")]
+  public void CanItHandleNegativeNumbers(string input)
+  {
+    //Arrange
+    int expected = -24;
+    //Act
+    int actual = Program.ChallengeOne(input);
+    //Assert
+    Assert.Equal(expected, actual);
+  }
 }
-
-  
-
-  
