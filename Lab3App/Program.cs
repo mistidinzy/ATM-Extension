@@ -141,7 +141,17 @@ namespace Lab3App
       return average;
     }
 
+    public static bool AreNumbersPositive(double[] numbers)
+    {
+      foreach (double num in numbers)
+      {
+        if (num < 0)
+        {
+            return false;
+        }
+      }
+      return true;
+    }
   }
-
 }
 

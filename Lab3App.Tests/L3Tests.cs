@@ -65,17 +65,24 @@ public class L3Tests
     Assert.Equal(expectedAverage, actualAverage);
   }
 
-  //Challenge Two: Test input validation
+  // Test input validation
   [Fact]
-  public void NegativeNumbersAreNotAllowed()
+  public void OnlyPositiveNumbersAreAllowed()
   {
-    double[] numbers = new double[] { -1, 2, 3 };
+    double[] numbers = new double[] { 1, 2, 3 };
+    Assert.True(Program.AreNumbersPositive(numbers));
 
-    double result = Program.ChallengeTwo(numbers);
-
-    Assert.Throws<ArgumentException>(() => Program.ChallengeTwo(numbers));
+    numbers = new double[] { 1, -2, 3 };
+    Assert.False(Program.AreNumbersPositive(numbers));
   }
 
-  //Challenge Two: All numbers are 0s
-
+  //Test all numbers being 0
+  [Fact]
+  public void AverageOfZeroesIsZero()
+  {
+    double[] numbers = new double[] { 0, 0, 0 };
+    double expectedAverage = 0;
+    double actualAverage = Program.ChallengeTwo(numbers);
+    Assert.Equal(expectedAverage, actualAverage);
+  }
 }
