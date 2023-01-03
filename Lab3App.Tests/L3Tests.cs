@@ -6,7 +6,7 @@ namespace Lab3App.Tests;
 
 public class L3Tests
 {
-  //Input a string of numbers and it returns a product of all numbers
+  //Challenge One: Input a string of numbers and it returns a product of all numbers
   [Theory]
   [InlineData("2 3 4")]
   public void UserInputReturnsProduct(string input)
@@ -19,7 +19,7 @@ public class L3Tests
     Assert.Equal(expected, actual);
   }
 
-  //Input more than 3 numbers
+  //Challenge One: Input more than 3 numbers
   [Theory]
   [InlineData("2 3 4 6")] //Arrange
   public void ThrowsIfInputIsMoreThanThreeNumbers(string input)
@@ -30,7 +30,7 @@ public class L3Tests
     });
   }
 
-  //Input of less than 3 numbers
+  //Challenge One: Input of less than 3 numbers
   [Theory]
   [InlineData("2 3")] //Arrange
   public void ThrowsIfInputIsLessThanThreeNumbers(string input)
@@ -41,7 +41,7 @@ public class L3Tests
     });
   }
 
-  //Can it handle negative numbers
+  //Challenge One: Can it handle negative numbers
   [Theory]
   [InlineData("2 -3 4")]
   public void CanItHandleNegativeNumbers(string input)
@@ -53,4 +53,29 @@ public class L3Tests
     //Assert
     Assert.Equal(expected, actual);
   }
+
+  //Challenge Two: Input different ranges of numbers and confirm averages
+  [Fact]
+  public void AverageOfNumbersIsCorrect()
+  {   
+    double expectedAverage = 2;
+    double[] choices = { 1, 2, 3 };
+    double actualAverage = Program.ChallengeTwo(choices);
+
+    Assert.Equal(expectedAverage, actualAverage);
+  }
+
+  //Challenge Two: Test input validation
+  [Fact]
+  public void NegativeNumbersAreNotAllowed()
+  {
+    double[] numbers = new double[] { -1, 2, 3 };
+
+    double result = Program.ChallengeTwo(numbers);
+
+    Assert.Throws<ArgumentException>(() => Program.ChallengeTwo(numbers));
+  }
+
+  //Challenge Two: All numbers are 0s
+
 }

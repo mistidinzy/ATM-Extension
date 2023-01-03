@@ -10,7 +10,9 @@ namespace Lab3App
       ChallengeOne(input);
 
       string second = GetSecondInput();
-      ChallengeTwo(second);
+      double[] choices = C2Choices(second);
+
+      ChallengeTwo(choices); 
     }
 
     public static string GetProductInput()
@@ -79,15 +81,12 @@ namespace Lab3App
 
     }
 
-    public static double ChallengeTwo(string input)
+    public static double[] C2Choices(string numR)
     {
-      double average = 0;
-      int numCount = int.Parse(input);
+      int rounds = int.Parse(numR);
+      double[] numbers = new double[rounds];
 
-      // Input the numbers and store in array
-      double[] numbers = new double[numCount];
-
-      for (int i = 0; i < numCount; i++)
+      for (int i = 0; i < rounds; i++)
       {
         Console.WriteLine("Enter a number: ");
 
@@ -95,30 +94,47 @@ namespace Lab3App
 
         if (entry != null)
         {
-          double num = double.Parse(entry);
-
-          // Check that number is positive
-          while (num < 0)
+          try
           {
-            Console.WriteLine("Number must be positive. Enter a positive number: ");
+            double num = double.Parse(entry);
 
-            num = double.Parse(entry);
+            while (num < 0)
+            {
+              Console.WriteLine("Number must be positive. Enter a positive number: ");
+
+              string? redo = Console.ReadLine();
+
+              if (redo != null)
+              {
+                num = double.Parse(redo);
+              }
+            }
+            numbers[i] = num;
           }
-
-          numbers[i] = num;
+          catch (FormatException ex)
+          {
+            Console.WriteLine("Please enter a positive number.", ex.Message);
+          }                
         }
         else { throw new ArgumentException("User input was null."); }
       }
+      return numbers;
+    }
 
-      // Calculate average of numbers
+    public static double ChallengeTwo(double[] numbers)
+    {
+      double average = 0;
+      
       double sum = 0;
+
+      double rounds = numbers.Length;
 
       foreach (double num in numbers)
       {
         sum += num;
       }
 
-      average = sum / numCount;
+      average = sum / rounds;
 
       Console.WriteLine("The average of the numbers is: " + average);
 
