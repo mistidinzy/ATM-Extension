@@ -9,7 +9,7 @@ public class L3Tests
   //Challenge One: Input a string of numbers and it returns a product of all numbers
   [Theory]
   [InlineData("2 3 4")]
-  public void UserInputReturnsProduct(string input)
+  public void C1UserInputReturnsProduct(string input)
   {
     //Arrange
     int expected = 24;
@@ -22,7 +22,7 @@ public class L3Tests
   //Challenge One: Input more than 3 numbers
   [Theory]
   [InlineData("2 3 4 6")] //Arrange
-  public void ThrowsIfInputIsMoreThanThreeNumbers(string input)
+  public void C1ThrowsIfInputIsMoreThanThreeNumbers(string input)
   { //Assert
     Assert.Throws<ArgumentException>(() =>
     {//Act
@@ -33,7 +33,7 @@ public class L3Tests
   //Challenge One: Input of less than 3 numbers
   [Theory]
   [InlineData("2 3")] //Arrange
-  public void ThrowsIfInputIsLessThanThreeNumbers(string input)
+  public void C1ThrowsIfInputIsLessThanThreeNumbers(string input)
   { //Assert
     Assert.Throws<ArgumentException>(() =>
     {//Act
@@ -44,7 +44,7 @@ public class L3Tests
   //Challenge One: Can it handle negative numbers
   [Theory]
   [InlineData("2 -3 4")]
-  public void CanItHandleNegativeNumbers(string input)
+  public void C1CanItHandleNegativeNumbers(string input)
   {
     //Arrange
     int expected = -24;
@@ -56,7 +56,7 @@ public class L3Tests
 
   //Challenge Two: Input different ranges of numbers and confirm averages
   [Fact]
-  public void AverageOfNumbersIsCorrect()
+  public void C2AverageOfNumbersIsCorrect()
   {   
     double expectedAverage = 2;
     double[] choices = { 1, 2, 3 };
@@ -67,7 +67,7 @@ public class L3Tests
 
   // Test input validation
   [Fact]
-  public void OnlyPositiveNumbersAreAllowed()
+  public void C2OnlyPositiveNumbersAreAllowed()
   {
     double[] numbers = new double[] { 1, 2, 3 };
     Assert.True(Program.C2AreNumbersPositive(numbers));
@@ -78,7 +78,7 @@ public class L3Tests
 
   //Test all numbers being 0
   [Fact]
-  public void AverageOfZeroesIsZero()
+  public void C2AverageOfZeroesIsZero()
   {
     double[] numbers = new double[] { 0, 0, 0 };
     double expectedAverage = 0;
