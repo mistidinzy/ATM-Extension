@@ -127,9 +127,15 @@ public class L3Tests
     Assert.Equal(expected, result);
   }
 
-
   //There multiple numbers that show up the same amount of times.
-
+  [Fact]
+  public void C4TieReturnsFirstToRepeat()
+  {
+    int[] arr = new int[8] { 1, 2, 3, 4, 4, 5, 5, 6 };
+    int result = Program.C4MostFrequentNumber(arr);
+    int expected = 5;
+    Assert.Equal(expected, result);
+  }
 }
 
 
