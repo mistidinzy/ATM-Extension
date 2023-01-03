@@ -9,7 +9,7 @@ public class L3Tests
 {
   //------------- C1 Tests ------------//
 
-  //Challenge One: Input a string of numbers and it returns a product of all numbers
+  //Input a string of numbers and it returns a product of all numbers
   [Theory]
   [InlineData("2 3 4")]
   public void C1UserInputReturnsProduct(string input)
@@ -22,7 +22,7 @@ public class L3Tests
     Assert.Equal(expected, actual);
   }
 
-  //Challenge One: Input more than 3 numbers
+  //Input more than 3 numbers
   [Theory]
   [InlineData("2 3 4 6")] //Arrange
   public void C1ThrowsIfInputIsMoreThanThreeNumbers(string input)
@@ -33,7 +33,7 @@ public class L3Tests
     });
   }
 
-  //Challenge One: Input of less than 3 numbers
+  //Input of less than 3 numbers
   [Theory]
   [InlineData("2 3")] //Arrange
   public void C1ThrowsIfInputIsLessThanThreeNumbers(string input)
@@ -44,7 +44,7 @@ public class L3Tests
     });
   }
 
-  //Challenge One: Can it handle negative numbers
+  //Can it handle negative numbers
   [Theory]
   [InlineData("2 -3 4")]
   public void C1CanItHandleNegativeNumbers(string input)
@@ -59,7 +59,7 @@ public class L3Tests
 
   //------------- C2 Tests ------------//
 
-  //Challenge Two: Input different ranges of numbers and confirm averages
+  //Input different ranges of numbers and confirm averages
   [Fact]
   public void C2AverageOfNumbersIsCorrect()
   {   
@@ -70,7 +70,7 @@ public class L3Tests
     Assert.Equal(expectedAverage, actualAverage);
   }
 
-  // Test input validation
+  //Test input validation
   [Fact]
   public void C2OnlyPositiveNumbersAreAllowed()
   {
@@ -143,14 +143,22 @@ public class L3Tests
 
   //------------- C5 Tests ------------//
   //1. Negative numbers
-  //2. All values are the same
-
   [Fact]
   public void C5WorksWithNegativeNumbers()
   {
     int[] arr = new int[8] { 1, 2, -3, 4, 4, 5, -5, 6 };
     int result = C5MaxValue(arr);
     int expected = 6;
+    Assert.Equal(expected, result);
+  }
+
+  //2. All values are the same
+  [Fact]
+  public void C5AllSameValue()
+  {
+    int[] arr = new int[5] { 2,2,2,2,2 };
+    int result = C5MaxValue(arr);
+    int expected = 4;
     Assert.Equal(expected, result);
   }
 
