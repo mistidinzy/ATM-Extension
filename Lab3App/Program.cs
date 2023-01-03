@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lab3App
 {
@@ -6,14 +7,18 @@ namespace Lab3App
   {
     public static void Main()
     {
-      string input = C1GetProductInput();
-      ChallengeOne(input);
+      //string input = C1GetProductInput();
+      //ChallengeOne(input);
 
-      string second = C2GetSecondInput();
-      double[] choices = C2Choices(second);
-      ChallengeTwo(choices);
+      //string second = C2GetSecondInput();
+      //double[] choices = C2Choices(second);
+      //ChallengeTwo(choices);
 
-      C3PrintDesign();
+      //C3PrintDesign();
+
+      int[] nums = { 4, 5, 8, 4, 8, 6, 9, 9, 9 };
+      int c4Result = C4MostFrequentNumber(nums);
+      Console.WriteLine($"The number that appears the most is: {c4Result}!");
     }
 
     public static string C1GetProductInput()
@@ -57,6 +62,7 @@ namespace Lab3App
         }
         else
         {
+
           throw new ArgumentException("Please enter 3 numbers.");
         }
       }
@@ -177,6 +183,51 @@ namespace Lab3App
 
         Console.WriteLine();
       }
+    }
+
+    static Dictionary<int, int> ArrayToDictionary(int[] numbers)
+    {
+      var dictionary = new Dictionary<int, int>();
+
+      foreach (int num in numbers)
+      {
+        dictionary[num] = num;
+      }
+      return dictionary;
+    }
+
+    public static int C4MostFrequentNumber(int[] numbers)
+    {
+      //Use a dictionary to count the frequency of each number
+      Dictionary<int, int> frequencyCount = new Dictionary<int, int>();
+
+      //Iterate through array, check for number dictionary
+      //Count it once if it's not there
+      foreach (int number in numbers)
+      {
+        if (frequencyCount.ContainsKey(number))
+        {
+          frequencyCount[number]++;
+        }
+        else
+        {
+          frequencyCount[number] = 1;
+        }
+      }
+ 
+      int mostFrequentNumber = 0;
+      int highestFrequency = 0;
+
+      foreach (KeyValuePair<int, int> entry in frequencyCount)
+      {
+        if (entry.Value > highestFrequency)
+        {
+          mostFrequentNumber = entry.Key;
+          highestFrequency = entry.Value;
+        }
+      }
+
+      return mostFrequentNumber;
     }
   }
 }
