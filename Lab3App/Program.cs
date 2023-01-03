@@ -7,21 +7,26 @@ namespace Lab3App
   {
     public static void Main()
     {
+
+      //Challenge One
       //string input = C1GetProductInput();
       //ChallengeOne(input);
 
+      //Challenge Two
       //string second = C2GetSecondInput();
       //double[] choices = C2Choices(second);
       //ChallengeTwo(choices);
 
+      //Challenge Three
       //C3PrintDesign();
 
+      //Challenge Four
       int[] nums2 = generateArray(10);
       Console.WriteLine($"The random array is: [{genArrStr(nums2)}]");
-
       int c4Result2 = C4MostFrequentNumber(nums2);
       Console.WriteLine($"The number that appears the most is: {c4Result2}!");
 
+      //Challenge Five
       int[] arr3 = generateArray(10);
       Console.WriteLine($"The random array is: [{genArrStr(arr3)}]");
       int result = C5MaxValue(arr3);
@@ -51,6 +56,8 @@ namespace Lab3App
 
       return output;
     }
+
+    //----------- Challenge One ------------//
 
     public static string C1GetProductInput()
     {
@@ -101,6 +108,8 @@ namespace Lab3App
 
       return product;
     }
+
+    //----------- Challenge Two ------------//
 
     public static string C2GetSecondInput()
     {
@@ -161,6 +170,7 @@ namespace Lab3App
 
     public static double ChallengeTwo(double[] numbers)
     {
+      //Create empty placeholders for average and sum
       double average = 0;
 
       double sum = 0;
@@ -191,6 +201,8 @@ namespace Lab3App
       return true;
     }
 
+    //------------- Challenge Three ------------//
+
     public static void C3PrintDesign()
     {
       int size = 9;
@@ -215,6 +227,8 @@ namespace Lab3App
         Console.WriteLine();
       }
     }
+
+    //------------- Challenge Four ------------//
 
     static Dictionary<int, int> ArrayToDictionary(int[] numbers)
     {
@@ -260,6 +274,8 @@ namespace Lab3App
 
       return mostFrequentNumber;
     }
+
+    //------------- Challenge Five ------------//
 
     public static int C5MaxValue(int[] arr)
     {
