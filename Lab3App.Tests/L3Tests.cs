@@ -70,10 +70,10 @@ public class L3Tests
   public void OnlyPositiveNumbersAreAllowed()
   {
     double[] numbers = new double[] { 1, 2, 3 };
-    Assert.True(Program.AreNumbersPositive(numbers));
+    Assert.True(Program.C2AreNumbersPositive(numbers));
 
     numbers = new double[] { 1, -2, 3 };
-    Assert.False(Program.AreNumbersPositive(numbers));
+    Assert.False(Program.C2AreNumbersPositive(numbers));
   }
 
   //Test all numbers being 0
