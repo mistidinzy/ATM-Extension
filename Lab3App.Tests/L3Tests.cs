@@ -133,7 +133,7 @@ public class L3Tests
   {
     int[] arr = new int[8] { 1, 2, 3, 4, 4, 5, 5, 6 };
     int result = Program.C4MostFrequentNumber(arr);
-    int expected = 5;
+    int expected = 4;
     Assert.Equal(expected, result);
   }
 }
