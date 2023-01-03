@@ -16,9 +16,35 @@ namespace Lab3App
 
       //C3PrintDesign();
 
-      int[] nums = { 4, 5, 8, 4, 8, 6, 9, 9, 9 };
-      int c4Result = C4MostFrequentNumber(nums);
-      Console.WriteLine($"The number that appears the most is: {c4Result}!");
+      int[] nums2 = generateArray(10);
+      Console.WriteLine($"The random array is: [{genArrStr(nums2)}]");
+
+      int c4Result2 = C4MostFrequentNumber(nums2);
+      Console.WriteLine($"The number that appears the most is: {c4Result2}!");
+    }
+
+    public static int[] generateArray(int count)
+    {
+      // Create a new Random object
+      Random rand = new Random();
+
+      // Create an array to store the random integers
+      int[] randomInts = new int[count];
+
+      // Generate and store 10 random integers
+      for (int i = 0; i < count; i++)
+      {
+        randomInts[i] = rand.Next(1, 21);
+      }
+
+      return randomInts;
+    }
+
+    public static string genArrStr(int[] arr)
+    {
+      string output = string.Join(", ", arr);
+
+      return output;
     }
 
     public static string C1GetProductInput()

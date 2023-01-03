@@ -1,3 +1,4 @@
+using System.Drawing;
 using Xunit;
 
 using static Lab3App.Program;
@@ -86,3 +87,9 @@ public class L3Tests
     Assert.Equal(expectedAverage, actualAverage);
   }
 }
+
+//C4 Tests
+//Input different size arrays
+//All numbers in the array are the same value
+//No duplicates exist in the array
+//There multiple numbers that show up the same amount of times.
