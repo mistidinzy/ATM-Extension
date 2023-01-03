@@ -21,6 +21,11 @@ namespace Lab3App
 
       int c4Result2 = C4MostFrequentNumber(nums2);
       Console.WriteLine($"The number that appears the most is: {c4Result2}!");
+
+      int[] arr3 = generateArray(10);
+      Console.WriteLine($"The random array is: [{genArrStr(arr3)}]");
+      int result = C5MaxValue(arr3);
+      Console.WriteLine($"The max value in the array is: {result}.");
     }
 
     public static int[] generateArray(int count)
@@ -254,6 +259,20 @@ namespace Lab3App
       }
 
       return mostFrequentNumber;
+    }
+
+    public static int C5MaxValue(int[] arr)
+    {
+      int max = arr[0];
+
+      for(int i = 0; i <arr.Length; i++)
+      {
+        if (arr[i] > max)
+        {
+          max = arr[i];
+        }
+      }
+      return max;
     }
   }
 }
