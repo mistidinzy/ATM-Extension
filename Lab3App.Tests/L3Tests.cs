@@ -55,6 +55,8 @@ public class L3Tests
     Assert.Equal(expected, actual);
   }
 
+  //C2 Tests
+
   //Challenge Two: Input different ranges of numbers and confirm averages
   [Fact]
   public void C2AverageOfNumbersIsCorrect()
@@ -87,21 +89,48 @@ public class L3Tests
     Assert.Equal(expectedAverage, actualAverage);
   }
 
+  //No tests for C3
+  //C4 Tests
+
   [Fact]
-  public void C4CanTestDifferentArraySizes()
+  public void C4ReturnsCorrectInt()
   {
     int[] arr = new int[10] {1,4,3,4,5,4,7,8,4,10};
-
     int result = Program.C4MostFrequentNumber(arr);
+    int expected = 4;
+    Assert.Equal(expected, result);
 
-    int expected = 3;
+    //Works with different array sizes
+    int[] arr2 = new int[6] {1,2,3,4,2,0};
+    int result2 = Program.C4MostFrequentNumber(arr2);
+    int expected2 = 2;
+    Assert.Equal(expected2, result2);
+  }
 
+  //All numbers in the array are the same value
+  [Fact]
+  public void C4ArrayOfSameNumbers()
+  {
+    int[] arr = new int[5] { 1, 1, 1, 1, 1 };
+    int result = Program.C4MostFrequentNumber(arr);
+    int expected = 1;
     Assert.Equal(expected, result);
   }
+
+  //No duplicates exist in the array
+  [Fact]
+  public void C4NoDuplicates()
+  {
+    int[] arr = new int[7] { 1, 2, 3, 4, 5, 6, 7 };
+    int result = Program.C4MostFrequentNumber(arr);
+    int expected = 1;
+    Assert.Equal(expected, result);
+  }
+
+
+  //There multiple numbers that show up the same amount of times.
+
 }
 
-//C4 Tests
-//Input different size arrays
-//All numbers in the array are the same value
-//No duplicates exist in the array
-//There multiple numbers that show up the same amount of times.
+
+
