@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lab3App
 {
@@ -6,14 +7,44 @@ namespace Lab3App
   {
     public static void Main()
     {
-      string input = C1GetProductInput();
-      ChallengeOne(input);
+      //string input = C1GetProductInput();
+      //ChallengeOne(input);
 
-      string second = C2GetSecondInput();
-      double[] choices = C2Choices(second);
-      ChallengeTwo(choices);
+      //string second = C2GetSecondInput();
+      //double[] choices = C2Choices(second);
+      //ChallengeTwo(choices);
 
-      C3PrintDesign();
+      //C3PrintDesign();
+
+      int[] nums2 = generateArray(10);
+      Console.WriteLine($"The random array is: [{genArrStr(nums2)}]");
+
+      int c4Result2 = C4MostFrequentNumber(nums2);
+      Console.WriteLine($"The number that appears the most is: {c4Result2}!");
+    }
+
+    public static int[] generateArray(int count)
+    {
+      // Create a new Random object
+      Random rand = new Random();
+
+      // Create an array to store the random integers
+      int[] randomInts = new int[count];
+
+      // Generate and store 10 random integers
+      for (int i = 0; i < count; i++)
+      {
+        randomInts[i] = rand.Next(1, 21);
+      }
+
+      return randomInts;
+    }
+
+    public static string genArrStr(int[] arr)
+    {
+      string output = string.Join(", ", arr);
+
+      return output;
     }
 
     public static string C1GetProductInput()
@@ -57,6 +88,7 @@ namespace Lab3App
         }
         else
         {
+
           throw new ArgumentException("Please enter 3 numbers.");
         }
       }
@@ -177,6 +209,51 @@ namespace Lab3App
 
         Console.WriteLine();
       }
+    }
+
+    static Dictionary<int, int> ArrayToDictionary(int[] numbers)
+    {
+      var dictionary = new Dictionary<int, int>();
+
+      foreach (int num in numbers)
+      {
+        dictionary[num] = num;
+      }
+      return dictionary;
+    }
+
+    public static int C4MostFrequentNumber(int[] numbers)
+    {
+      //Use a dictionary to count the frequency of each number
+      Dictionary<int, int> frequencyCount = new Dictionary<int, int>();
+
+      //Iterate through array, check for number dictionary
+      //Count it once if it's not there
+      foreach (int number in numbers)
+      {
+        if (frequencyCount.ContainsKey(number))
+        {
+          frequencyCount[number]++;
+        }
+        else
+        {
+          frequencyCount[number] = 1;
+        }
+      }
+ 
+      int mostFrequentNumber = 0;
+      int highestFrequency = 0;
+
+      foreach (KeyValuePair<int, int> entry in frequencyCount)
+      {
+        if (entry.Value > highestFrequency)
+        {
+          mostFrequentNumber = entry.Key;
+          highestFrequency = entry.Value;
+        }
+      }
+
+      return mostFrequentNumber;
     }
   }
 }
