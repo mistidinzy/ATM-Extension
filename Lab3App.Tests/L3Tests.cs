@@ -86,6 +86,18 @@ public class L3Tests
     double actualAverage = Program.ChallengeTwo(numbers);
     Assert.Equal(expectedAverage, actualAverage);
   }
+
+  [Fact]
+  public void C4CanTestDifferentArraySizes()
+  {
+    int[] arr = new int[10] {1,4,3,4,5,4,7,8,4,10};
+
+    int result = Program.C4MostFrequentNumber(arr);
+
+    int expected = 3;
+
+    Assert.Equal(expected, result);
+  }
 }
 
 //C4 Tests
