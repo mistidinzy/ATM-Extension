@@ -6,16 +6,17 @@ namespace Lab3App
   {
     public static void Main()
     {
-      string input = GetProductInput();
+      string input = C1GetProductInput();
       ChallengeOne(input);
 
-      string second = GetSecondInput();
+      string second = C2GetSecondInput();
       double[] choices = C2Choices(second);
+      ChallengeTwo(choices);
 
-      ChallengeTwo(choices); 
+      C3PrintDesign();
     }
 
-    public static string GetProductInput()
+    public static string C1GetProductInput()
     {
       string result = "foo";
 
@@ -64,7 +65,7 @@ namespace Lab3App
       return product;
     }
 
-    public static string GetSecondInput()
+    public static string C2GetSecondInput()
     {
       string result = "foo";
 
@@ -114,7 +115,7 @@ namespace Lab3App
           catch (FormatException ex)
           {
             Console.WriteLine("Please enter a positive number.", ex.Message);
-          }                
+          }
         }
         else { throw new ArgumentException("User input was null."); }
       }
@@ -124,7 +125,7 @@ namespace Lab3App
     public static double ChallengeTwo(double[] numbers)
     {
       double average = 0;
-      
+
       double sum = 0;
 
       double rounds = numbers.Length;
@@ -141,16 +142,41 @@ namespace Lab3App
       return average;
     }
 
-    public static bool AreNumbersPositive(double[] numbers)
+    public static bool C2AreNumbersPositive(double[] numbers)
     {
       foreach (double num in numbers)
       {
         if (num < 0)
         {
-            return false;
+          return false;
         }
       }
       return true;
+    }
+
+    public static void C3PrintDesign()
+    {
+      int size = 9;
+      for (int i = 0; i < size; i++)
+      {
+        // Calculate number of spaces and asterisks to print
+        int spaces = Math.Abs(i - size / 2);
+        int asterisks = size - 2 * spaces;
+
+        // Print spaces
+        for (int j = 0; j < spaces; j++)
+        {
+          Console.Write(" ");
+        }
+
+        // Print asterisks
+        for (int j = 0; j < asterisks; j++)
+        {
+          Console.Write("*");
+        }
+
+        Console.WriteLine();
+      }
     }
   }
 }
