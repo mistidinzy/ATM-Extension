@@ -148,11 +148,10 @@ public class L3Tests
   [Fact]
   public void C5WorksWithNegativeNumbers()
   {
-    int[] arr = new int[8] { 1, 2, 3, 4, 4, 5, 5, 6 };
+    int[] arr = new int[8] { 1, 2, -3, 4, 4, 5, -5, 6 };
     int result = C5MaxValue(arr);
-    int expected = 4;
+    int expected = 6;
     Assert.Equal(expected, result);
-
   }
 
 }
