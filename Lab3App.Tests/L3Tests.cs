@@ -158,10 +158,9 @@ public class L3Tests
   {
     int[] arr = new int[5] { 2,2,2,2,2 };
     int result = C5MaxValue(arr);
-    int expected = 4;
+    int expected = 2;
     Assert.Equal(expected, result);
   }
-
 }
 
 
