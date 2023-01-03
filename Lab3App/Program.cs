@@ -6,11 +6,16 @@ namespace Lab3App
   {
     public static void Main()
     {
-      string input = GetInput();
+      string input = GetProductInput();
       ChallengeOne(input);
+
+      string second = GetSecondInput();
+      double[] choices = C2Choices(second);
+
+      ChallengeTwo(choices); 
     }
 
-    public static string GetInput()
+    public static string GetProductInput()
     {
       string result = "foo";
 
@@ -57,6 +62,95 @@ namespace Lab3App
       else { throw new ArgumentException("User Input was null."); }
 
       return product;
+    }
+
+    public static string GetSecondInput()
+    {
+      string result = "foo";
+
+      Console.WriteLine("Hello, enter a number between 2 and 10.");
+
+      string? userInput = Console.ReadLine();
+
+      if (userInput != null)
+      {
+        result = userInput;
+      }
+
+      return result;
+
+    }
+
+    public static double[] C2Choices(string numR)
+    {
+      int rounds = int.Parse(numR);
+      double[] numbers = new double[rounds];
+
+      for (int i = 0; i < rounds; i++)
+      {
+        Console.WriteLine("Enter a number: ");
+
+        string? entry = Console.ReadLine();
+
+        if (entry != null)
+        {
+          try
+          {
+            double num = double.Parse(entry);
+
+            while (num < 0)
+            {
+              Console.WriteLine("Number must be positive. Enter a positive number: ");
+
+              string? redo = Console.ReadLine();
+
+              if (redo != null)
+              {
+                num = double.Parse(redo);
+              }
+            }
+            numbers[i] = num;
+          }
+          catch (FormatException ex)
+          {
+            Console.WriteLine("Please enter a positive number.", ex.Message);
+          }                
+        }
+        else { throw new ArgumentException("User input was null."); }
+      }
+      return numbers;
+    }
+
+    public static double ChallengeTwo(double[] numbers)
+    {
+      double average = 0;
+      
+      double sum = 0;
+
+      double rounds = numbers.Length;
+
+      foreach (double num in numbers)
+      {
+        sum += num;
+      }
+
+      average = sum / rounds;
+
+      Console.WriteLine("The average of the numbers is: " + average);
+
+      return average;
+    }
+
+    public static bool AreNumbersPositive(double[] numbers)
+    {
+      foreach (double num in numbers)
+      {
+        if (num < 0)
+        {
+            return false;
+        }
+      }
+      return true;
     }
   }
 }

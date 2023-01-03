@@ -6,7 +6,7 @@ namespace Lab3App.Tests;
 
 public class L3Tests
 {
-  //Input a string of numbers and it returns a product of all numbers
+  //Challenge One: Input a string of numbers and it returns a product of all numbers
   [Theory]
   [InlineData("2 3 4")]
   public void UserInputReturnsProduct(string input)
@@ -19,7 +19,7 @@ public class L3Tests
     Assert.Equal(expected, actual);
   }
 
-  //Input more than 3 numbers
+  //Challenge One: Input more than 3 numbers
   [Theory]
   [InlineData("2 3 4 6")] //Arrange
   public void ThrowsIfInputIsMoreThanThreeNumbers(string input)
@@ -30,7 +30,7 @@ public class L3Tests
     });
   }
 
-  //Input of less than 3 numbers
+  //Challenge One: Input of less than 3 numbers
   [Theory]
   [InlineData("2 3")] //Arrange
   public void ThrowsIfInputIsLessThanThreeNumbers(string input)
@@ -41,7 +41,7 @@ public class L3Tests
     });
   }
 
-  //Can it handle negative numbers
+  //Challenge One: Can it handle negative numbers
   [Theory]
   [InlineData("2 -3 4")]
   public void CanItHandleNegativeNumbers(string input)
@@ -52,5 +52,37 @@ public class L3Tests
     int actual = Program.ChallengeOne(input);
     //Assert
     Assert.Equal(expected, actual);
+  }
+
+  //Challenge Two: Input different ranges of numbers and confirm averages
+  [Fact]
+  public void AverageOfNumbersIsCorrect()
+  {   
+    double expectedAverage = 2;
+    double[] choices = { 1, 2, 3 };
+    double actualAverage = Program.ChallengeTwo(choices);
+
+    Assert.Equal(expectedAverage, actualAverage);
+  }
+
+  // Test input validation
+  [Fact]
+  public void OnlyPositiveNumbersAreAllowed()
+  {
+    double[] numbers = new double[] { 1, 2, 3 };
+    Assert.True(Program.AreNumbersPositive(numbers));
+
+    numbers = new double[] { 1, -2, 3 };
+    Assert.False(Program.AreNumbersPositive(numbers));
+  }
+
+  //Test all numbers being 0
+  [Fact]
+  public void AverageOfZeroesIsZero()
+  {
+    double[] numbers = new double[] { 0, 0, 0 };
+    double expectedAverage = 0;
+    double actualAverage = Program.ChallengeTwo(numbers);
+    Assert.Equal(expectedAverage, actualAverage);
   }
 }
