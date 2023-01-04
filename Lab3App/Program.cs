@@ -48,7 +48,7 @@ namespace Lab3App
       //C8RemoveWordFromFile();
 
       //Challenge Nine
-      C9BreakSentence();
+      ChallengeNine();
     }
 
     public static void StartMsg()
@@ -482,23 +482,27 @@ namespace Lab3App
     //Then breaks that sentence up into an array, where each value is a word & its character length 
     //Ex Result: ["This: 4","is: 2", "a: 1", "sentence: 8", "about: 5", "important: 9", "things: 6"]
 
-    public static string[] C9BreakSentence()
+    public static string C9GetInput()
     {
       Console.WriteLine("  >>> Hello again. Please give me a sentence.");
       Console.WriteLine(" ");
 
       string? sentence = Console.ReadLine();
+      return sentence;
+    }
 
+    public static string[] C9BreakSentence(string input)
+    {
       Console.WriteLine(" ");
       Console.WriteLine("---------------------------------------------------");
-      Console.WriteLine($" >>> Okay, so your sentence was: '{sentence}'");
+      Console.WriteLine($" >>> Okay, so your sentence was: '{input}'");
       Console.WriteLine("---------------------------------------------------");
       Console.WriteLine(" ");
       Console.WriteLine("Now I'm going to break it up, and count the characters in each word.");
       Console.WriteLine(" ");
       Console.WriteLine("---------------------------------------------------");
 
-      string[] arr = sentence.Split(' ');
+      string[] arr = input.Split(' ');
       string[] wordsAndLengths = arr.Select(word => $"{word}: {word.Length}").ToArray();
 
       Console.WriteLine(" ");
@@ -514,6 +518,12 @@ namespace Lab3App
       Console.WriteLine("---------------------------------------------------");
 
       return wordsAndLengths;
+    }
+
+    public static void ChallengeNine()
+    {
+      string input = C9GetInput();
+      string[] sentence = C9BreakSentence(input);
     }
   }
 }

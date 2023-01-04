@@ -173,6 +173,12 @@ public class L3Tests
 
   //------------- C9 Tests ------------//
   //1. Input a sentence, and it returns the correct array
+
+  [Fact]
+  public void C9GetsCorrectArray()
+  {
+    string[] arr = C9BreakSentence();
+  }
   //2. Input a sentence and confirm it returns an array
   //3. Use different sentences with different symbols
 }
