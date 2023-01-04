@@ -31,6 +31,8 @@ namespace Lab3App
       Console.WriteLine($"The random array is: [{genArrStr(arr3)}]");
       int result = C5MaxValue(arr3);
       Console.WriteLine($"The max value in the array is: {result}.");
+
+      C6SavedInput();
     }
 
     public static int[] generateArray(int count)
@@ -289,6 +291,23 @@ namespace Lab3App
         }
       }
       return max;
+    }
+
+    //----------- Challenge Six --------------//
+
+    public static void C6SavedInput()
+    {
+      Console.WriteLine("Hello, please give me a word.");
+
+      string? input = Console.ReadLine();
+
+      if(input != null)
+      {
+        File.WriteAllText("words.txt", input);
+      }
+      Console.WriteLine("Words file has been updated: ");
+      string readText = File.ReadAllText("words.txt");  
+      Console.WriteLine(readText); 
     }
   }
 }
