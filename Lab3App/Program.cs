@@ -49,7 +49,6 @@ namespace Lab3App
 
       //Challenge Nine
       C9BreakSentence();
-     
     }
 
     public static void StartMsg()
@@ -516,7 +515,6 @@ namespace Lab3App
 
       return wordsAndLengths;
     }
-
   }
 }
 
