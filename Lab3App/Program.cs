@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Lab3App
 {
@@ -7,7 +8,7 @@ namespace Lab3App
   {
     public static void Main()
     {
-
+      StartMsg();
       //Challenge One
       //string input = C1GetProductInput();
       //ChallengeOne(input);
@@ -26,6 +27,8 @@ namespace Lab3App
       int c4Result2 = C4MostFrequentNumber(nums2);
       Console.WriteLine($"The number that appears the most is: {c4Result2}!");
 
+      Console.WriteLine(" ");
+
       //Challenge Five
       int[] arr3 = generateArray(10);
       Console.WriteLine($"The random array is: [{genArrStr(arr3)}]");
@@ -41,6 +44,16 @@ namespace Lab3App
       C6SaveInput();
       C6SaveInput();
       C7Output();
+    }
+
+    public static void StartMsg()
+    {
+      Console.WriteLine(" ");
+      Console.WriteLine("---------------------------------------------------");
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Console.WriteLine("                      START");
+      Console.ResetColor();
+      Console.WriteLine("---------------------------------------------------");
     }
 
     public static int[] generateArray(int count)
@@ -305,6 +318,7 @@ namespace Lab3App
 
     //----------- Challenge Six --------------//
     //Write a method that asks the user for a word and then saves that word into a text file.
+
     public static void C6SaveInput()
     {
       Console.WriteLine(" ");
@@ -336,6 +350,7 @@ namespace Lab3App
 
     //----------- Challenge Seven --------------//
     //Write a method that reads the file in from Challenge 6, and outputs the contents to the console.
+
     public static void C7Output()
     {
       Console.WriteLine(" ");
@@ -353,6 +368,11 @@ namespace Lab3App
     {
       File.WriteAllText(fileName, "");
     }
+
+    //----------- Challenge Seven --------------//
+    //Write a method that reads in the file from Challenge 6,
+    //Then removes one of the words,
+    //Then rewrites it back to the file.
   }
 }
 
