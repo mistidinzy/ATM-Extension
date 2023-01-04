@@ -24,4 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ATM\ATM.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
+  </ItemGroup>
 </Project>
