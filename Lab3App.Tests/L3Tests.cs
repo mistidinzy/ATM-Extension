@@ -177,7 +177,11 @@ public class L3Tests
   [Fact]
   public void C9GetsCorrectArray()
   {
-    string[] arr = C9BreakSentence();
+    string[] result = C9BreakSentence("What if Mister Krabs is a robot");
+    string strung = genStr(result);
+
+    string expected = "What: 4, if: 2, Mister: 6, Krabs: 5, is: 2, a: 1, robot: 5";
+    Assert.Equal(expected, strung);
   }
   //2. Input a sentence and confirm it returns an array
   //3. Use different sentences with different symbols

@@ -520,10 +520,12 @@ namespace Lab3App
       return wordsAndLengths;
     }
 
-    public static void ChallengeNine()
+    public static string[] ChallengeNine()
     {
       string input = C9GetInput();
       string[] sentence = C9BreakSentence(input);
+      
+      return sentence;
     }
   }
 }
