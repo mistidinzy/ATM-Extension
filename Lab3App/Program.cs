@@ -22,28 +22,30 @@ namespace Lab3App
       //C3PrintDesign();
 
       //Challenge Four
-      int[] nums2 = generateArray(10);
-      Console.WriteLine($"The random array is: [{genArrStr(nums2)}]");
-      int c4Result2 = C4MostFrequentNumber(nums2);
-      Console.WriteLine($"The number that appears the most is: {c4Result2}!");
+      //int[] nums2 = generateArray(10);
+      //Console.WriteLine($"The random array is: [{genArrStr(nums2)}]");
+      //int c4Result2 = C4MostFrequentNumber(nums2);
+      //Console.WriteLine($"The number that appears the most is: {c4Result2}!");
 
-      Console.WriteLine(" ");
+      //Console.WriteLine(" ");
 
       //Challenge Five
-      int[] arr3 = generateArray(10);
-      Console.WriteLine($"The random array is: [{genArrStr(arr3)}]");
-      int result = C5MaxValue(arr3);
-      Console.WriteLine($"The max value in the array is: {result}.");
+      //int[] arr3 = generateArray(10);
+      //Console.WriteLine($"The random array is: [{genArrStr(arr3)}]");
+      //int result = C5MaxValue(arr3);
+      //Console.WriteLine($"The max value in the array is: {result}.");
 
       //Challenge Six
       ClearLog("words.txt");
-      C6SaveInput();
+      //C6SaveInput();
 
       //Challenge Seven
-      C7Output();
       C6SaveInput();
       C6SaveInput();
       C7Output();
+
+      //ChallengeEight
+      C8RemoveWordFromFile();
     }
 
     public static void StartMsg()
@@ -58,13 +60,13 @@ namespace Lab3App
 
     public static int[] generateArray(int count)
     {
-      // Create a new Random object
+      //Create a new Random object
       Random rand = new Random();
 
-      // Create an array to store the random integers
+      //Create an array to store the random integers
       int[] randomInts = new int[count];
 
-      // Generate and store 10 random integers
+      //Generate and store 10 random integers
       for (int i = 0; i < count; i++)
       {
         randomInts[i] = rand.Next(1, 21);
@@ -231,17 +233,17 @@ namespace Lab3App
       int size = 9;
       for (int i = 0; i < size; i++)
       {
-        // Calculate number of spaces and asterisks to print
+        //Calculate number of spaces and asterisks to print
         int spaces = Math.Abs(i - size / 2);
         int asterisks = size - 2 * spaces;
 
-        // Print spaces
+        //Print spaces
         for (int j = 0; j < spaces; j++)
         {
           Console.Write(" ");
         }
 
-        // Print asterisks
+        //Print asterisks
         for (int j = 0; j < asterisks; j++)
         {
           Console.Write("*");
@@ -334,7 +336,7 @@ namespace Lab3App
       {
         using (StreamWriter sw = new StreamWriter("words.txt", true))
         {
-          sw.WriteLine();
+          //sw.WriteLine();
           sw.WriteLine(word);
         }
       }
@@ -361,7 +363,7 @@ namespace Lab3App
       Console.ResetColor();
       string readText = File.ReadAllText("words.txt");
       Console.WriteLine(readText);
-      Console.WriteLine(" ");     
+      Console.WriteLine("---------------------------------------------------");
     }
 
     public static void ClearLog(string fileName)
@@ -369,10 +371,101 @@ namespace Lab3App
       File.WriteAllText(fileName, "");
     }
 
-    //----------- Challenge Seven --------------//
+    //----------- Challenge Eight --------------//
     //Write a method that reads in the file from Challenge 6,
     //Then removes one of the words,
     //Then rewrites it back to the file.
+
+    public static void C8RemoveWordFromFile()
+    {
+      //Read the contents of the file, move into a string array
+      string[] words = File.ReadAllLines("words.txt");
+
+      //Check if the array is empty, or has only one value
+      if (words.Length <= 1)
+      {
+        Console.WriteLine("The file is empty or has only one word. There is nothing to remove.");
+        return;
+      }
+
+      //Print the words to the console
+      Console.WriteLine("");
+      Console.WriteLine("Current words in the file:");
+      Console.WriteLine("");
+
+      for (int i = 0; i < words.Length; i++)
+      {
+        Console.WriteLine($"{i + 1}: {words[i]}");
+      }
+
+      Console.WriteLine("");
+
+      //Prompt the user to enter the index of the word to be removed
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine(" >>> Enter the index of the word to remove:");
+      Console.WriteLine("---------------------------------------------------");
+
+      int index = int.Parse(Console.ReadLine()) - 1;
+
+      //Check if the index is valid
+      if (index < 0 || index >= words.Length)
+      {
+        Console.WriteLine("Invalid index. The word was not removed.");
+        return;
+      }
+
+      string removedWord = words[index];
+
+      //Remove the word at the specified index
+      words = words.Where((val, idx) => idx != index).ToArray();
+
+      //Rewrite the modified array back to the file
+      File.WriteAllLines("words.txt", words);
+
+      //Print the updated words to the console
+      Console.WriteLine("");
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine("Okay! Updated words in the file to:");
+      Console.WriteLine("");
+
+      for (int i = 0; i < words.Length; i++)
+      {
+        Console.WriteLine($"{i + 1}: {words[i]}");
+      }
+
+      Console.WriteLine("");
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine("");
+      Console.WriteLine(" >>> Part Two! Now we have to add it back...");
+      Console.WriteLine("");
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine("");
+      Console.WriteLine("Adding word back to file...");
+      Console.WriteLine("");
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine("");
+
+      //Add the removed word back to the file
+      using (StreamWriter sw = new StreamWriter("words.txt", true))
+      {
+        sw.WriteLine(removedWord);
+      }
+
+      //Read the contents of the file, move into a string array
+      string[] words2 = File.ReadAllLines("words.txt");
+
+      //Print the words to the console
+      Console.WriteLine("Done! Current words in the file:");
+      for (int i = 0; i < words2.Length; i++)
+      {
+        Console.WriteLine($"{i + 1}: {words2[i]}");
+      }
+
+      Console.WriteLine("");
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine("Goodbye!");
+      Console.WriteLine("---------------------------------------------------");
+    }
   }
 }
 
