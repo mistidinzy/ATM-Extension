@@ -32,7 +32,15 @@ namespace Lab3App
       int result = C5MaxValue(arr3);
       Console.WriteLine($"The max value in the array is: {result}.");
 
-      C6SavedInput();
+      //Challenge Six
+      ClearLog("words.txt");
+      C6SaveInput();
+
+      //Challenge Seven
+      C7Output();
+      C6SaveInput();
+      C6SaveInput();
+      C7Output();
     }
 
     public static int[] generateArray(int count)
@@ -231,6 +239,7 @@ namespace Lab3App
     }
 
     //------------- Challenge Four ------------//
+    //Write a method that takes in an integer array, and returns the value that appears most frequently.
 
     static Dictionary<int, int> ArrayToDictionary(int[] numbers)
     {
@@ -261,7 +270,7 @@ namespace Lab3App
           frequencyCount[number] = 1;
         }
       }
- 
+
       int mostFrequentNumber = 0;
       int highestFrequency = 0;
 
@@ -278,12 +287,13 @@ namespace Lab3App
     }
 
     //------------- Challenge Five ------------//
+    //Write a method that takes in an integer array, and returns the maximum value from that array.
 
     public static int C5MaxValue(int[] arr)
     {
       int max = arr[0];
 
-      for(int i = 0; i <arr.Length; i++)
+      for (int i = 0; i < arr.Length; i++)
       {
         if (arr[i] > max)
         {
@@ -294,20 +304,54 @@ namespace Lab3App
     }
 
     //----------- Challenge Six --------------//
-
-    public static void C6SavedInput()
+    //Write a method that asks the user for a word and then saves that word into a text file.
+    public static void C6SaveInput()
     {
-      Console.WriteLine("Hello, please give me a word.");
+      Console.WriteLine(" ");
+      Console.WriteLine("---------------------------------------------------");
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Console.WriteLine("   >>>>  Hello! Please give me a word.");
+      Console.ResetColor();
+      Console.WriteLine("---------------------------------------------------");
 
-      string? input = Console.ReadLine();
+      string? word = Console.ReadLine();
 
-      if(input != null)
+      if (word != null)
       {
-        File.WriteAllText("words.txt", input);
+        using (StreamWriter sw = new StreamWriter("words.txt", true))
+        {
+          sw.WriteLine();
+          sw.WriteLine(word);
+        }
       }
-      Console.WriteLine("Words file has been updated: ");
-      string readText = File.ReadAllText("words.txt");  
-      Console.WriteLine(readText); 
+
+      Console.WriteLine(" ");
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine(" ");
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Console.WriteLine("       Words file has been updated to include:");
+      Console.ResetColor();
+      Console.WriteLine($"              * {word}");
+    }
+
+    //----------- Challenge Seven --------------//
+    //Write a method that reads the file in from Challenge 6, and outputs the contents to the console.
+    public static void C7Output()
+    {
+      Console.WriteLine(" ");
+      Console.WriteLine("---------------------------------------------------");
+      Console.WriteLine(" ");
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Console.WriteLine("        Words file contains the following:");
+      Console.ResetColor();
+      string readText = File.ReadAllText("words.txt");
+      Console.WriteLine(readText);
+      Console.WriteLine(" ");     
+    }
+
+    public static void ClearLog(string fileName)
+    {
+      File.WriteAllText(fileName, "");
     }
   }
 }
