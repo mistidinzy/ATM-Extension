@@ -173,7 +173,6 @@ public class L3Tests
 
   //------------- C9 Tests ------------//
   //1. Input a sentence, and it returns the correct array
-
   [Fact]
   public void C9GetsCorrectArray()
   {
@@ -183,7 +182,18 @@ public class L3Tests
     string expected = "What: 4, if: 2, Mister: 6, Krabs: 5, is: 2, a: 1, robot: 5";
     Assert.Equal(expected, strung);
   }
+
   //2. Input a sentence and confirm it returns an array
+  [Fact]
+  public void C9ReturnsCorrectType()
+  {
+    //Call the method and get the result
+    //string[] result = C9BreakSentence("What if Mister Krabs is a robot");
+
+    //Assert that the result is an array
+    Assert.IsType<string[]>(C9BreakSentence("What if Mister Krabs is a robot"));
+  }
+
   //3. Use different sentences with different symbols
 }
 
