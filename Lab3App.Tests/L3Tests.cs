@@ -193,8 +193,6 @@ public class L3Tests
     //Assert that the result is an array
     Assert.IsType<string[]>(C9BreakSentence("What if Mister Krabs is a robot"));
   }
-
-  //3. Use different sentences with different symbols
 }
 
 
