@@ -161,6 +161,20 @@ public class L3Tests
     int expected = 2;
     Assert.Equal(expected, result);
   }
+
+  //------------- C6 Tests ------------//
+  //Tests are optional for this challenge
+
+  //------------- C7 Tests ------------//
+  //Tests are optional for this challenge
+
+  //------------- C8 Tests ------------//
+  //Tests are optional for this challenge
+
+  //------------- C9 Tests ------------//
+  //1. Input a sentence, and it returns the correct array
+  //2. Input a sentence and confirm it returns an array
+  //3. Use different sentences with different symbols
 }
 
 
